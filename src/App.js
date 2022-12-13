@@ -1,10 +1,15 @@
 import React from 'react'
-import Exercise from './components/Exercise'
+
+import Navbar from './components/Navbar'
+import ListedExercises from './components/ListedExercises'
 import doomyData from './doomyData'
 
 export const App = () => {
   return (
-    <Exercise exercise={doomyData}/>
+    <>
+      <Navbar appName={'Fit Planner'}/>
+      <ListedExercises exercises={doomyData}/>
+    </>
   )
 }
 
