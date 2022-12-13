@@ -1,10 +1,10 @@
 import React from 'react'
+import Exercise from './components/Exercise'
+import doomyData from './doomyData'
 
 export const App = () => {
   return (
-    <div>
-      CodeRoad APP
-    </div>
+    <Exercise exercise={doomyData}/>
   )
 }
 
