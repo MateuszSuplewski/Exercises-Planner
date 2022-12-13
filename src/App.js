@@ -1,15 +1,37 @@
 import React from 'react'
+import useExercises from './hooks/useExercises'
+import { fetchData } from './api/fetchData'
+import exercisesContext from './contexts'
 
 import Navbar from './components/Navbar'
 import ListedExercises from './components/ListedExercises'
-import doomyData from './doomyData'
 
 export const App = () => {
+  const [exercises, isLoading, error] = useExercises(fetchData)
+
   return (
-    <>
-      <Navbar appName={'Fit Planner'}/>
-      <ListedExercises exercises={doomyData}/>
-    </>
+    <exercisesContext.Provider value={exercises}>
+      <div>
+        {isLoading
+          ? (
+            <p>Loading...</p>
+            )
+          : error
+            ? (
+              <p>{error}</p>
+              )
+            : exercises.length === 0
+              ? (
+                <p>No exercises to display</p>
+                )
+              : (
+                <>
+                  <Navbar appName={'Fit Planner'}/>
+                  <ListedExercises exercises={exercises}/>
+                </>
+                )}
+      </div>
+    </exercisesContext.Provider>
   )
 }
 
