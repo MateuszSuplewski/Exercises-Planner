@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Exercises plan panel.
 - Redux + localStorage to store and handle app data.
 
+## [0.3.1] - 2022-12-15
+
 ### Changed
 
 - Nicer look for initial app states.
