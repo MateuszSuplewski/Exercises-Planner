@@ -4,7 +4,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt'
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
 import PropTypes from 'prop-types'
 
-export const Navbar = ({ appName }) => {
+const Navbar = ({ appName }) => {
   return (
     <AppBar position={'sticky'}>
       <Container maxWidth={'xl'}>

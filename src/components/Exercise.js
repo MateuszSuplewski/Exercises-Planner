@@ -1,17 +1,19 @@
 import React, { useContext } from 'react'
-import { Grid, Box, Divider, Typography, Stack, Chip, Button } from '@mui/material'
+import { Grid, Box, Divider, Typography, Stack, Button } from '@mui/material'
 import PropTypes from 'prop-types'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn'
 import exercisesContext from '../contexts'
 import { useParams, useNavigate } from 'react-router-dom'
+import LabeledContent from './LabeledContent'
 
 const Exercise = () => {
   const { exercises } = useContext(exercisesContext)
   const { exerciseid } = useParams()
   const navigate = useNavigate()
 
-  const exercise = exercises.find(exercise => exercise.id === exerciseid)
+  const exercise = exercises.find((exercise) => exercise.id === exerciseid)
   const { name, description, gifUrl, equipment, bodyPart, target } = exercise
+
   return (
     <>
       <Box sx={{ p: 2 }}>
@@ -60,39 +62,18 @@ const Exercise = () => {
               {name}
             </Typography>
             <Typography component={'p'}>{description}</Typography>
-            <Typography
-              variant={'subtitle1'}
-              component={'p'}
-            >
-              Equipment needed
-              <Chip
-                sx={{ ml: 0.75, fontWeight: '700', letterSpacing: '1px' }}
-                color={'success'}
-                label={equipment.toUpperCase()}
-              />
-            </Typography>
-            <Typography
-              variant={'subtitle1'}
-              component={'p'}
-            >
-              Trained part of the body
-              <Chip
-                sx={{ ml: 0.75, fontWeight: '700', letterSpacing: '1px' }}
-                color={'success'}
-                label={bodyPart.toUpperCase()}
-              />
-            </Typography>
-            <Typography
-              variant={'subtitle1'}
-              component={'p'}
-            >
-              Exercise is focused on muscles
-              <Chip
-                sx={{ ml: 0.75, fontWeight: '700', letterSpacing: '1px' }}
-                color={'success'}
-                label={target.toUpperCase()}
-              />
-            </Typography>
+            <LabeledContent
+              startContent={'Equipment needed'}
+              labelContent={equipment}
+            />
+            <LabeledContent
+              startContent={'Trained part of the body'}
+              labelContent={bodyPart}
+            />
+            <LabeledContent
+              startContent={'Exercise is focused on muscles'}
+              labelContent={target}
+            />
           </Stack>
         </Grid>
       </Grid>
