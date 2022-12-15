@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Grid, Box, Divider, Typography, Stack, Chip, Button } from '@mui/material'
 import PropTypes from 'prop-types'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn'
+import exercisesContext from '../contexts'
+import { useParams, useNavigate } from 'react-router-dom'
 
-export const Exercise = ({ exercise }) => {
+const Exercise = () => {
+  const { exercises } = useContext(exercisesContext)
+  const { exerciseid } = useParams()
+  const navigate = useNavigate()
+
+  const exercise = exercises.find(exercise => exercise.id === exerciseid)
   const { name, description, gifUrl, equipment, bodyPart, target } = exercise
   return (
     <>
@@ -11,6 +18,7 @@ export const Exercise = ({ exercise }) => {
         <Button
           variant={'text'}
           startIcon={<KeyboardReturnIcon />}
+          onClick={() => navigate(-1)}
         >
           Return to list
         </Button>
