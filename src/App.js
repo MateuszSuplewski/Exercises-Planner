@@ -2,10 +2,10 @@ import React from 'react'
 import useExercises from './hooks/useExercises'
 import { fetchData } from './api/fetchData'
 import exercisesContext from './contexts'
-import ListedExercises from './components/ListedExercises'
 import { Routes, Route } from 'react-router-dom'
-import Exercise from './components/Exercise'
 import Page404 from './components/Page404'
+import ExercisePage from './pages/ExercisePage'
+import ExercisesListPage from './pages/ExercisesListPage'
 
 export const App = () => {
   const [exercises, isLoading, error] = useExercises(fetchData)
@@ -15,15 +15,15 @@ export const App = () => {
       <Routes>
         <Route
           path={'/'}
-          element={<ListedExercises />}
+          element={<ExercisesListPage />}
         />
         <Route
           path={'/exercise/:exerciseid'}
-          element={<Exercise/>}
+          element={<ExercisePage/>}
         />
         <Route
           path={'/page/:page'}
-          element={<ListedExercises/>}
+          element={<ExercisesListPage/>}
         />
         <Route
           path={'*'}
