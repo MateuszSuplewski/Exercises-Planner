@@ -4,6 +4,8 @@ import exercisesContext from '../contexts'
 import Pagination from './Pagination'
 import { Typography, Card, CardActions, CardContent, CardMedia, Button, Grid, Stack, Box } from '@mui/material'
 import { Link } from 'react-router-dom'
+import FullPageLoader from './FullPageLoader'
+import FullPageMessage from './FullPageMessage'
 
 export const ListedExercises = () => {
   const { exercises, isLoading, error } = useContext(exercisesContext)
@@ -11,15 +13,23 @@ export const ListedExercises = () => {
     <>
       {isLoading
         ? (
-          <p>Loading...</p>
+          <FullPageLoader/>
           )
         : error
           ? (
-            <p>{error}</p>
+            <FullPageMessage
+              color={'error.main'}
+              variant={'h4'}
+            >{error}
+            </FullPageMessage>
             )
           : exercises.length === 0
             ? (
-              <p>No exercises to display</p>
+              <FullPageMessage
+                color={'warning.main'}
+                variant={'h4'}
+              >No exercises to display
+              </FullPageMessage>
               )
             : (
               <Grid
