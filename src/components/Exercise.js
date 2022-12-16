@@ -1,17 +1,19 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Grid, Box, Divider, Typography, Stack, Button } from '@mui/material'
 import PropTypes from 'prop-types'
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn'
-import exercisesContext from '../contexts'
 import { useParams, useNavigate } from 'react-router-dom'
 import LabeledContent from './LabeledContent'
+import { useSelector } from 'react-redux'
+import { selector } from '../state/getExercises'
 
 const Exercise = () => {
-  const { exercises } = useContext(exercisesContext)
+  const exercisesState = useSelector(selector)
+  const { value } = exercisesState
   const { exerciseid } = useParams()
   const navigate = useNavigate()
 
-  const exercise = exercises.find((exercise) => exercise.id === exerciseid)
+  const exercise = value.find((exercise) => exercise.id === exerciseid)
   const { name, description, gifUrl, equipment, bodyPart, target } = exercise
 
   return (
