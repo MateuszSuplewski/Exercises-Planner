@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Pagination from './Pagination'
 import { Grid } from '@mui/material'
 import FullPageLoader from './FullPageLoader'
 import FullPageMessage from './FullPageMessage'
 import ExerciseCard from './ExerciseCard'
-import { useDispatch, useSelector } from 'react-redux'
-import { actionCreators, selector } from '../state/getExercises'
+import { useSelector } from 'react-redux'
+import { selector } from '../state/getExercises'
 
 export const ListedExercises = () => {
-  const storeDispatch = useDispatch()
   const exercisesState = useSelector(selector)
   const { value, loading, error } = exercisesState
-
-  useEffect(() => {
-    storeDispatch(actionCreators.getExercises())
-  }, [])
 
   return (
     <>
