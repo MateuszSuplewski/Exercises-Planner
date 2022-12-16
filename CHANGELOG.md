@@ -10,7 +10,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added 
 
 - Exercises plan panel.
-- Redux + localStorage to store and handle app data.
+
+## [0.4.0] - 2022-12-16
+
+### Added 
+
+- Redux store to maintain and update data across app.
+- Local storage support to store your data in browser.
+- New data providing functions that supports Redux way better.
+
+### Removed
+
+- Usage of context.
+- Old data providing functions.
 
 ## [0.3.1] - 2022-12-15
 
