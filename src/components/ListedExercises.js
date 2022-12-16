@@ -1,17 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import exercisesContext from '../contexts'
 import Pagination from './Pagination'
 import { Grid } from '@mui/material'
 import FullPageLoader from './FullPageLoader'
 import FullPageMessage from './FullPageMessage'
 import ExerciseCard from './ExerciseCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { actionCreators, selector } from '../state/getExercises'
 
 export const ListedExercises = () => {
-  const { exercises, isLoading, error } = useContext(exercisesContext)
+  const storeDispatch = useDispatch()
+  const exercisesState = useSelector(selector)
+  const { value, loading, error } = exercisesState
+
+  useEffect(() => {
+    storeDispatch(actionCreators.getExercises())
+  }, [])
+
   return (
     <>
-      {isLoading
+      {loading
         ? (
           <FullPageLoader />
           )
@@ -24,7 +32,7 @@ export const ListedExercises = () => {
               {error}
             </FullPageMessage>
             )
-          : exercises.length === 0
+          : value && value.length === 0
             ? (
               <FullPageMessage
                 color={'warning.main'}
@@ -43,7 +51,7 @@ export const ListedExercises = () => {
                   limit={12}
                   path={'/page'}
                 >
-                  {exercises.map((exercise) => (
+                  {value && value.map((exercise) => (
                     <ExerciseCard
                       key={exercise.id}
                       exercise={exercise}
