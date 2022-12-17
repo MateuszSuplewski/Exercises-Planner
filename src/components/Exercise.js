@@ -6,6 +6,8 @@ import { useParams, useNavigate } from 'react-router-dom'
 import LabeledContent from './LabeledContent'
 import { useSelector } from 'react-redux'
 import { selector } from '../state/getExercises'
+import ExerciseForm from './exerciseForm'
+import exerciseFields from '../data/formFields'
 
 const Exercise = () => {
   const exercisesState = useSelector(selector)
@@ -77,6 +79,10 @@ const Exercise = () => {
               labelContent={target}
             />
           </Stack>
+          <ExerciseForm
+            exerciseName={name}
+            fields={exerciseFields}
+          />
         </Grid>
       </Grid>
     </>

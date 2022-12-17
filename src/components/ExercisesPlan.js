@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 
 const ExercisesPlan = () => {
   const trainingPlanState = useSelector((state) => state.trainingPlan)
-  console.log(Object.keys(trainingPlanState))
   return (
     <TableContainer
       component={Paper}
