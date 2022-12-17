@@ -9,7 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
-- Exercises plan panel.
+- Possibility to add exercise with seleted options to cart.
+- Possibility to delete exercise from cart.
+
+## [0.5.0] - 2022-12-17
+
+### Added 
+
+- Exercises plan panel page that contains cart with exercises plan.
+
+### Changed
+
+- Default app background color.
+
+### Fixed
+
+- Changelog `Fixed` section in v.0.4.0.
 
 ## [0.4.0] - 2022-12-16
 
@@ -23,6 +38,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Usage of context.
 - Old data providing functions.
+
+### Fixed
+
+- Data loading more than one time
 
 ## [0.3.1] - 2022-12-15
 
