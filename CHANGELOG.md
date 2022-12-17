@@ -9,8 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
-- Possibility to add exercise with seleted options to cart.
 - Possibility to delete exercise from cart.
+
+## [0.6.0] - 2022-12-18
+
+### Added 
+
+- Possibility to add exercise with selected options to cart.
+
+### Fixed
+
+- No version update in one file.
 
 ## [0.5.0] - 2022-12-17
 
