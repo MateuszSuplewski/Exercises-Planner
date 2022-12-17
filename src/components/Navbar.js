@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Container, Badge, IconButton } from '@mui/
 import ListAltIcon from '@mui/icons-material/ListAlt'
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Navbar = ({ appName }) => {
   return (
@@ -13,8 +14,8 @@ const Navbar = ({ appName }) => {
           <Typography
             variant={'h5'}
             noWrap
-            component={'a'}
-            href={''}
+            component={Link}
+            to={'/'}
             sx={{
               mr: 2,
               display: 'flex',
@@ -28,7 +29,10 @@ const Navbar = ({ appName }) => {
           >
             {appName}
           </Typography>
-          <IconButton>
+          <IconButton
+            component={Link}
+            to={'/exercises-plan'}
+          >
             <Badge
               badgeContent={20}
               color={'error'}
