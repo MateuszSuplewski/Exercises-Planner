@@ -30,11 +30,12 @@ const DailyPlan = ({ day, exercises }) => {
             timeout={'auto'}
             unmountOnExit
           >
-            <Box sx={{ margin: 1 }}>
+            <Box sx={{ margin: 1, backgroundColor: '#f5f5f5' }}>
               <Typography
                 variant={'h6'}
                 gutterBottom
                 component={'div'}
+                sx={{ pl: 0.5 }}
               >
                 {`Training for ${day}`}
               </Typography>

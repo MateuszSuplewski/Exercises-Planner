@@ -6,10 +6,10 @@ import { Stack, Button } from '@mui/material'
 import validateForm from '../helpers/validateForm'
 import useForm from '../hooks/useForm'
 import { useDispatch } from 'react-redux'
-import { createActionAdd } from '../state/cart'
-import { v4 as uuidv4 } from 'uuid'
+import { createActionAdd } from '../state/trainingPlan'
+import { createActionRemove } from '../state/cart'
 
-const ExerciseForm = ({ exerciseName, fields }) => {
+const CartForm = ({ exercise, fields }) => {
   const data = {
     select: Select,
     input: Input,
@@ -18,9 +18,7 @@ const ExerciseForm = ({ exerciseName, fields }) => {
   }
 
   const initialState = {
-    weight: '',
-    sets: '',
-    repetitions: ''
+    dayOfWeek: ''
   }
 
   const storeDispatch = useDispatch()
@@ -35,8 +33,8 @@ const ExerciseForm = ({ exerciseName, fields }) => {
       return
     }
 
-    const exercise = { ...values, name: exerciseName, id: uuidv4() }
-    storeDispatch(createActionAdd(exercise))
+    storeDispatch(createActionAdd(exercise, values.dayOfWeek.toLowerCase()))
+    storeDispatch(createActionRemove(exercise.id))
     resetForm()
   }
 
@@ -55,6 +53,7 @@ const ExerciseForm = ({ exerciseName, fields }) => {
               value={values[field.name]}
               onChange={handleInputChange}
               error={errors[field.name]}
+              variant={'standard'}
             />
           )
         })}
@@ -62,18 +61,19 @@ const ExerciseForm = ({ exerciseName, fields }) => {
       <Button
         variant={'contained'}
         sx={{ mt: 0.75 }}
+        size={'small'}
         fullWidth
         type={'submit'}
       >
-        ADD EXERCISE
+        ADD TO PLAN
       </Button>
     </form>
   )
 }
 
-ExerciseForm.propTypes = {
-  exerciseName: PropTypes.string,
+CartForm.propTypes = {
+  exercise: PropTypes.object,
   fields: PropTypes.array
 }
 
-export default ExerciseForm
+export default CartForm

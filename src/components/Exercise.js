@@ -7,7 +7,7 @@ import LabeledContent from './LabeledContent'
 import { useSelector } from 'react-redux'
 import { selector } from '../state/getExercises'
 import ExerciseForm from './exerciseForm'
-import exerciseFields from '../data/formFields'
+import { exerciseFields } from '../data/formFields'
 
 const Exercise = () => {
   const exercisesState = useSelector(selector)
