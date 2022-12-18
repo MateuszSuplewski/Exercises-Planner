@@ -1,5 +1,6 @@
 export const ADD = 'trainingPlan/ADD'
 export const REMOVE = 'trainingPlan/REMOVE'
+export const SET_EXERCISES_BY_DAY = 'trainingPlan/SET_EXERCISES_BY_DAY'
 
 export const createActionAdd = (exercise, dayOfWeek) => {
   return {
@@ -13,6 +14,14 @@ export const createActionRemove = (exerciseId, dayOfWeek) => {
   return {
     type: REMOVE,
     payload: exerciseId,
+    dayOfWeek
+  }
+}
+
+export const createActionSetExercisesByDay = (dailyExercises, dayOfWeek) => {
+  return {
+    type: SET_EXERCISES_BY_DAY,
+    payload: dailyExercises,
     dayOfWeek
   }
 }
@@ -38,9 +47,14 @@ export const reducer = (state = initialState, action) => {
     case REMOVE:
       return {
         ...state,
-        [dayOfWeek]: state[dayOfWeek].filter(
-          (exercise) => exercise.id !== action.payload
-        )
+        [dayOfWeek]: [...state[dayOfWeek].filter(
+          (exercise) => exercise.id !== action.payload.id
+        )]
+      }
+    case SET_EXERCISES_BY_DAY:
+      return {
+        ...state,
+        [dayOfWeek]: [...action.payload]
       }
     default:
       return state
