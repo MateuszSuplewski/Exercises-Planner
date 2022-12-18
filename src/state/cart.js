@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
     case ADD:
       return [...state, action.payload]
     case REMOVE:
-      return [state.filter(exercise => exercise.id !== action.payload)]
+      return [...state.filter(exercise => exercise.id !== action.payload)]
     default:
       return state
   }

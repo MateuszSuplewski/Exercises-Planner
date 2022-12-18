@@ -2,10 +2,10 @@ import React from 'react'
 import { FormControl, InputLabel, Select as MuiSelect, MenuItem, FormHelperText } from '@mui/material'
 import PropTypes from 'prop-types'
 
-const Select = ({ name, label, value = '', error = null, onChange, options }) => {
+const Select = ({ name, label, value = '', error = null, onChange, options, variant = 'outlined' }) => {
   return (
     <FormControl
-      variant={'outlined'}
+      variant={variant}
       error={!!error}
       sx={{ minWidth: '200px' }}
     >
@@ -36,7 +36,8 @@ Select.propTypes = {
   value: PropTypes.node,
   error: PropTypes.string,
   onChange: PropTypes.func,
-  options: PropTypes.array
+  options: PropTypes.array,
+  variant: PropTypes.string
 }
 
 export default Select
