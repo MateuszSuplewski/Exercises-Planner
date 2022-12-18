@@ -68,11 +68,11 @@ const DailyPlan = ({ day, exercises }) => {
                   {exercises.map(
                     ({ name, sets, weight, repetitions, id }, index) => (
                       <TableRow key={index}>
-                        <TableCell>{name}</TableCell>
+                        <TableCell sx={{ minWidth: '130px' }}>{name}</TableCell>
                         <TableCell>{sets}</TableCell>
                         <TableCell align={'right'}>{weight}</TableCell>
                         <TableCell align={'right'}>{repetitions}</TableCell>
-                        <TableCell>
+                        <TableCell sx={{ whiteSpace: 'nowrap' }}>
                           <IconButton
                             color={'primary'}
                             disabled={index === 0}

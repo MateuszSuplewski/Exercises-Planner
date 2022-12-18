@@ -14,6 +14,7 @@ const Pagination = ({ path = '', limit = 12, children }) => {
     <PaginationBar
       page={Number(page)}
       count={pages}
+      size={'large'}
       renderItem={(item) => (
         <PaginationBarItem
           component={Link}
@@ -31,6 +32,7 @@ const Pagination = ({ path = '', limit = 12, children }) => {
         display={'flex'}
         justifyContent={'center'}
         width={'100%'}
+        margin={'1rem 0'}
       >
         <Content />
       </Box>
