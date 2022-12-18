@@ -6,11 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- Soon
+
+## [1.0.0] - 2022-12-18
 
 ### Added 
 
-- Possibility to change exercises order in plan
-- Possibility to remove exercise from plan
+- Possibility to change exercises order in plan.
+- Possibility to remove exercise from plan.
+- Information pop-up when adding a new exercise to cart.
+
+### Changed
+
+- Small design fixes.
 
 ## [0.7.0] - 2022-12-18
 
