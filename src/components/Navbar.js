@@ -4,8 +4,10 @@ import ListAltIcon from '@mui/icons-material/ListAlt'
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = ({ appName }) => {
+  const cartState = useSelector((state) => state.cart)
   return (
     <AppBar position={'sticky'}>
       <Container maxWidth={'xl'}>
@@ -34,7 +36,7 @@ const Navbar = ({ appName }) => {
             to={'/exercises-plan'}
           >
             <Badge
-              badgeContent={20}
+              badgeContent={cartState.length}
               color={'error'}
             >
               <ListAltIcon color={'action'} />
