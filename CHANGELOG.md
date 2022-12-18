@@ -9,7 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
+- Possibility to change exercises order in plan
+- Possibility to remove exercise from plan
+
+## [0.7.0] - 2022-12-18
+
+### Added 
+
 - Possibility to delete exercise from cart.
+- Possibility to add exercise to declared day of the week to exercises plan.
 
 ## [0.6.0] - 2022-12-18
 
